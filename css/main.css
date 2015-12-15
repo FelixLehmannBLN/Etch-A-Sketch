@@ -1,13 +1,28 @@
+
 .container {
-  width: 800px;
+  /*width: 90%;*/
+  margin: auto;
 }
 
 .row{
   width: 100%;
 }
 .box {
-  width: 45px;
-  height: 45px;
-  border: 2px solid black;
-  float: left;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 1px;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: "";
+}
+.row:after {
+  clear: both;
+}
+
+.border {
+    border: 1px solid black;
 }

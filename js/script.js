@@ -1,15 +1,16 @@
 (function ($) {
 
+  var color = "red";
 
-  function createGrid() {
+  function createGrid(gridSize) {
     var grid = '<div class="Row"></div>',
     i,
-    gridSize = 16;
+    gridSize = gridSize || 16;
 
     for (i = 0; i < gridSize; i++) {
       var newRow = '<div class="Row">';
       for (var j = 0; j < gridSize; j++) {
-        var newDiv = '<div class="box"></div>';
+        var newDiv = '<div class="box border"></div>';
         newRow += newDiv;
       }
       newRow += '</div>'
@@ -20,11 +21,31 @@
 
   function paintIt() {
     var $this = $(this);
-    $this.css( "background", "red" );
-}
+    $this.css( "background", color );
+  }
+
+  function toggleBorder() {
+    $('.box').toggleClass('border');
+  }
+
+  function changeColor(){
+    $( "#change_colors_form option:selected").each(function(){
+      color = $( this ).val() + "";
+    });
+  } 
+   
+  function changeGridSize(){
+    $( "#change_grid_size option:selected").each(function(){
+      var size = $( this ).val() + "";
+      createGrid(size);
+    });
+  }
 
   function bindings(){
-    $('.box').on('mouseover', paintIt);
+    $('.container').on('mouseover', '.box', paintIt);
+    $('#borderCheckBox').on('change', toggleBorder);
+    $('#change_colors_form').on('change', changeColor);
+    $('#change_grid_size').on('change', changeGridSize);
   }
 
 $( document ).ready(function(){

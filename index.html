@@ -7,10 +7,29 @@
   <title>Etch-A-Sketch</title>
 </head>
 <body>
-  
-  <div class="container">
-    
-  </div>
+
+  <p>Change Gridsize</p>
+ 
+<form id="change_colors_form">  
+  <select name="colors">
+    <option value="red">Rot</option>
+    <option value="green">Grün</option>
+    <option value="blue">Blau</option>
+    <option value="yellow">Gelb</option>
+  </select>
+</form> 
+<form id="change_grid_size">  
+  <select name="sizes">
+    <option value="16">16</option>
+    <option value="32">32</option>
+    <option value="48">48</option>
+  </select>
+</form>
+  <button id="resetGrid">Reset the grid</button>
+  <input type="checkbox" id="borderCheckBox" checked />
+  <label for="borderCheckBox">Borders</label>
+
+  <div class="container"></div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="js/script.js"></script>
