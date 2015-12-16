@@ -3,12 +3,13 @@
   var color = "red";
 
   function createGrid(gridSize) {
-    var grid = '<div class="Row"></div>',
+    var grid = '',
     i,
-    gridSize = gridSize || 16;
+    gridSize = gridSize || 16,
+    boxSize = (600 / gridSize);
 
     for (i = 0; i < gridSize; i++) {
-      var newRow = '<div class="Row">';
+      var newRow = '<div class="row">';
       for (var j = 0; j < gridSize; j++) {
         var newDiv = '<div class="box border"></div>';
         newRow += newDiv;
@@ -17,6 +18,7 @@
       grid += newRow;
   }
     $('.container').html(grid);
+    $('.box').css("width", boxSize).css( "height", boxSize );
   }
 
   function paintIt() {
@@ -38,8 +40,6 @@
     $( "#change_grid_size option:selected").each(function(){
       var size = $( this ).val() + "";
       createGrid(size);
-      var boxSize = (960 / size) - 4;
-      $('.box').css("width", boxSize).css( "height", boxSize );
     });
   }
 
