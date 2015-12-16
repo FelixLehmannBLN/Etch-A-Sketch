@@ -38,6 +38,8 @@
     $( "#change_grid_size option:selected").each(function(){
       var size = $( this ).val() + "";
       createGrid(size);
+      var boxSize = (960 / size) - 4;
+      $('.box').css("width", boxSize).css( "height", boxSize );
     });
   }
 
